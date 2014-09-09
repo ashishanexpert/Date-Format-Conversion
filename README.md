@@ -5,6 +5,7 @@ Accepts string in different format with various kind of separators.
 
 
 ### Input formats it accepts:
+(Regardless of separator)
 * mm-dd
 * dd-mm
 * MMM-dd
