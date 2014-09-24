@@ -51,7 +51,7 @@ $(function(){
 		}
 		
 		// If OK: go to next step
-		if(day && month && year){
+		if(day && !isNaN(month) && year){
 			dateObj = new Date(year, month, day);
 		}
 		
