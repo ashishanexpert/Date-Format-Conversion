@@ -59,7 +59,7 @@ $(function(){
 		
 		// Validation functions
 		function isMonthInDigits(input){
-			return input <= 12;
+			return input > 0 && input <= 12;
 		}
 		
 		function isMonthInAlphabets(input){
