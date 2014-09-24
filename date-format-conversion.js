@@ -12,17 +12,19 @@ $(function(){
 		dateArr = dateString.match(/\d{1,4}|[a-zA-Z]{2,9}/g);
 		
 		// Getting date elements from the input
-		if(dateArr.length === 2){
+		if(dateArr.length < 2){
+			return dateObj;
+		} else if(dateArr.length === 2){
 			if(isMonthInDigits(dateArr[0]) && isDay(dateArr[1])){  // mm-dd
 				day = dateArr[1];
 				month = dateArr[0] - 1;
 			} else if(isMonthInDigits(dateArr[1]) && isDay(dateArr[0])) {  // dd-mm
 				day = dateArr[0];
 				month = dateArr[1] - 1;
-			} else if(isMonthInAlphabets(dateArr[0]) && isDay(dateArr[1])){  // MMM-dd
+			} else if(!isNaN(isMonthInAlphabets(dateArr[0])) && isDay(dateArr[1])){  // MMM-dd
 				day = dateArr[1];
 				month = isMonthInAlphabets(dateArr[0]);
-			} else if(isMonthInAlphabets(dateArr[1]) && isDay(dateArr[0])) {  // dd-MMM
+			} else if(!isNaN(isMonthInAlphabets(dateArr[1])) && isDay(dateArr[0])) {  // dd-MMM
 				day = dateArr[0];
 				month = isMonthInAlphabets(dateArr[1]);
 			}
@@ -40,11 +42,11 @@ $(function(){
 			day = dateArr[2];
 			month = dateArr[1] - 1;
 			year = dateArr[0];
-		} else if(isMonthInAlphabets(dateArr[0]) !== false && isDay(dateArr[1]) && isYear(dateArr[2])){ //MMM-dd-yyyy
+		} else if(!isNaN(isMonthInAlphabets(dateArr[0])) !== false && isDay(dateArr[1]) && isYear(dateArr[2])){ //MMM-dd-yyyy
 			day = dateArr[1];
 			month = isMonthInAlphabets(dateArr[0]);
 			year = dateArr[2];
-		} else if(isMonthInAlphabets(dateArr[1]) !== false && isDay(dateArr[0]) && isYear(dateArr[2])){ // dd-MMM-yyyy
+		} else if(!isNaN(isMonthInAlphabets(dateArr[1])) !== false && isDay(dateArr[0]) && isYear(dateArr[2])){ // dd-MMM-yyyy
 			day = dateArr[0];
 			month = isMonthInAlphabets(dateArr[1]);
 			year = dateArr[2];
