@@ -22,3 +22,5 @@ Accepts string in different format with various kind of separators.
 - Dash (-)
 - Slash (\, /)
 - anything else
+
+JS Fiddle Demo http://jsfiddle.net/ashishanexpert/8xrsbber/11/embedded/result/ 
